@@ -697,9 +697,9 @@ function displaySaveData() {
 
 function copySaveData() {
     navigator.clipboard.writeText(saveDataDisplay.value);
-    document.querySelector(".saveCopyIcon").src = "/src/ui/clipboardCheck.svg";
+    document.querySelector(".saveCopyIcon").src = "src/ui/clipboardCheck.svg";
     setTimeout(() => {
-        document.querySelector(".saveCopyIcon").src = "/src/ui/clipboard.svg";
+        document.querySelector(".saveCopyIcon").src = "src/ui/clipboard.svg";
     }, 1000)
 }
 
@@ -718,7 +718,7 @@ function loadFromSaveData(saveData) {
             let id = json.aquiredAchievement[x];
             aquiredAchievement.push(id);
             statsAchievementCounter.innerText = aquiredAchievement.length;
-            achievementList.children[id].children[0].src = "/src/ui/trophy.png"
+            achievementList.children[id].children[0].src = "src/ui/trophy.png"
         }
         redrawForest()
         treeCounter = 0;

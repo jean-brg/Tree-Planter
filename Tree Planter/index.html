@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Planter</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+    <link rel="shortcut icon" href="/src/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="oxygenHud">
+        <span>O<sub>2</sub>:</span>
+        <span id="oxygenCounter">0</span>
+    </div>
+
+    <div class="menuHud" onclick="openMenu()">
+        <img src="/src/ui/menu.svg" alt="Menu" class="menuIcon">
+    </div>
+
+    <canvas id="forest"></canvas>
+
+    <dialog id="mainMenu">
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Menu</h3>
+            <div class="menuNav">
+                <div class="menuOption" onclick="openSection(1)">Buy Tree</div>
+                <div class="menuOption" onclick="openSection(2)">Sell Tree</div>
+                <div class="menuOption" onclick="openSection(3)">Investments</div>
+                <div class="menuOption" onclick="openSection(4)">Achievements</div>
+                <div class="menuOption" onclick="openSection(5)">Statistics</div>
+                <div class="menuOption" onclick="openSection(6)">Save</div>
+            </div>
+
+            <button class="menuOption menuClose" onclick="closeMenu()">Close</button>
+        </div>
+
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Buy Tree</h3>
+            <div id="buyTreeList">
+                <!-- TREE LIST IS DYNAMICALLY CREATED USING TREE DATA -->
+            </div>
+
+            <button class="menuOption menuClose" onclick="openSection(0)">Back</button>
+        </div>
+
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Sell Tree</h3>
+            <div id="sellTreeList">
+                <!-- TREE LIST IS DYNAMICALLY CREATED USING TREE DATA -->
+            </div>
+
+            <button class="menuOption menuClose" onclick="openSection(0)">Back</button>
+        </div>
+
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Investments</h3>
+            <div id="currentInvestor">
+                <h3 id="investorName">Peace, Love, and Plants</h3>
+                <div class="investorOptions">
+                    <span class="investorLabel">Investment: </span> <span id="investorDemand" class="investorUnit" data-unit=" O&#x2082">1000</span>
+                    <span class="investorLabel">Volatility: </span> <span id="investorVolatility" class="investorUnit" data-unit="%">25</span>
+                    <span class="investorLabel">Time Period: </span> <span id="investorTimePeriod" class="investorUnit" data-unit=" sec">30</span>
+                </div>
+            </div>
+
+            <div id="investorActions">
+                <button class="investorActionButton" onclick="acceptInvestor()">Invest</button>
+                <button class="investorActionButton" onclick="displayNewInvestor()">Decline</button>
+            </div>
+            <div id="investorWait">Time Left: 30 sec</div>
+
+            <button class="menuOption menuClose" onclick="openSection(0)">Back</button>
+        </div>
+
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Achievements</h3>
+            <div id="achievementList">
+                <!-- ACHIEVEMENT LIST IS DYNAMICALLY CREATED USING TREE DATA -->
+            </div>
+
+            <button class="menuOption menuClose" onclick="openSection(0)">Back</button>
+        </div>
+
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Statistics</h3>
+            <p class="statsText">Trees: <span id="statsTreeCounter">0</span></p>
+            <p class="statsText">Production: <span id="statsProductionCounter">0</span> O<sub>2</sub>/s</p>
+            <p class="statsText">Achievements: <span id="statsAchievementCounter">0</span>/<span id="statsTotalAchievements">0</span></p>
+            <p class="statsText">Play Time: <span id="statsPlayTime">0</span></p>
+
+            <button class="menuOption menuClose" onclick="openSection(0)">Back</button>
+        </div>
+
+        <div class="menuSection">
+            <h3 class="mainMenuTitle">Save</h3>
+            <button class="saveActionButton" onclick="displaySaveData()">Generate Save Data</button>
+            <button class="saveActionButton" onclick="loadFromSaveData(this.parentElement.children[3].value)">Load From Save Data</button>
+            <textarea class="saveTextArea" id="saveDataDisplay"></textarea>
+            <div class="saveCopy" onclick="copySaveData()">
+                <img src="/src/ui/clipboard.svg" alt="Copy" class="saveCopyIcon"> Copy to clipboard
+            </div>
+
+            <div class="saveCopy" onclick="clearData()">
+                <img src="/src/ui/garbage.svg" alt="Copy"> Clear Save
+            </div>
+
+            <div class="menuCloseCenter">
+                <button class="menuOption menuClose" onclick="openSection(0)">Back</button>
+            </div>
+        </div>
+    </dialog>
+
+    <div id="investmentBanner">
+        Investment Profit: -999
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

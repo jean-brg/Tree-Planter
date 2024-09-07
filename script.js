@@ -154,7 +154,7 @@ function addTree(id) {
 function loadImage() {
     for (let x = 0; x < treeData.length; x++) {
         let treeImg = new Image()
-        treeImg.src = `/src/trees/${treeData[x].name}.png`
+        treeImg.src = `src/trees/${treeData[x].name}.png`
         treeImg.classList.add("treeIcon")
         treeData[x].img = treeImg;
     }
@@ -225,7 +225,7 @@ function menuAppendBuyTreeList(id) {
     treeOption.dataset.id = id;
     treeOption.setAttribute("onclick", "buyTree(this)")
     treeOption.innerHTML = `
-        <img src="/src/trees/${currentTree.name}.png" class="treeIcon" alt="${currentTree.name} Tree Icon">
+        <img src="src/trees/${currentTree.name}.png" class="treeIcon" alt="${currentTree.name} Tree Icon">
         <p class="treeName">${currentTree.name.charAt(0).toUpperCase() + currentTree.name.slice(1)}</p>
         <p class="treePrice">${currentTree.price}</p>
     `;
@@ -258,7 +258,7 @@ function menuAppendSellTreeList(id) {
     treeOption.dataset.id = id;
     treeOption.setAttribute("onclick", "sellTree(this)")
     treeOption.innerHTML = `
-        <img src="/src/trees/${currentTree.name}.png" class="treeIcon" alt="${currentTree.name} Tree Icon">
+        <img src="src/trees/${currentTree.name}.png" class="treeIcon" alt="${currentTree.name} Tree Icon">
         <p class="treeName">${currentTree.name.charAt(0).toUpperCase() + currentTree.name.slice(1)}</p>
         <p class="treeAmount">${currentTree.amount}</p>
     `;
@@ -379,7 +379,7 @@ document.body.onload = () => {
 }
 
 // ACHIVEMENTS
-fetch("/achievements.json").then(
+fetch("achievements.json").then(
     function(response){ return response.json();}
 ).then(
     function(json){
@@ -397,7 +397,7 @@ function menuAppendAchievementList() {
         let achievementCard = document.createElement("achievementCard");
         achievementCard.classList.add("achievementCard");
         achievementCard.innerHTML = `
-            <img src="/src/ui/question.png" alt="question" class="achievementStatus">
+            <img src="src/ui/question.png" alt="question" class="achievementStatus">
             <div class="achievementText">
                 <h6>${element.name}</h6>
                 <p>${element.desc}</p>
@@ -421,7 +421,7 @@ function broadcastAchivement(content) {
 function grantAchievement(id) {
     aquiredAchievement.push(id);
     statsAchievementCounter.innerText = aquiredAchievement.length;
-    achievementList.children[id].children[0].src = "/src/ui/trophy.png"
+    achievementList.children[id].children[0].src = "src/ui/trophy.png"
     broadcastAchivement(achievementData[id].name);
 }
 
@@ -697,9 +697,9 @@ function displaySaveData() {
 
 function copySaveData() {
     navigator.clipboard.writeText(saveDataDisplay.value);
-    document.querySelector(".saveCopyIcon").src = "/src/ui/clipboardCheck.svg";
+    document.querySelector(".saveCopyIcon").src = "src/ui/clipboardCheck.svg";
     setTimeout(() => {
-        document.querySelector(".saveCopyIcon").src = "/src/ui/clipboard.svg";
+        document.querySelector(".saveCopyIcon").src = "src/ui/clipboard.svg";
     }, 1000)
 }
 
@@ -718,7 +718,7 @@ function loadFromSaveData(saveData) {
             let id = json.aquiredAchievement[x];
             aquiredAchievement.push(id);
             statsAchievementCounter.innerText = aquiredAchievement.length;
-            achievementList.children[id].children[0].src = "/src/ui/trophy.png"
+            achievementList.children[id].children[0].src = "src/ui/trophy.png"
         }
         redrawForest()
         treeCounter = 0;

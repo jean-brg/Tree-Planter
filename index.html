@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tree Planter</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
-    <link rel="shortcut icon" href="/src/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="oxygenHud">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="menuHud" onclick="openMenu()">
-        <img src="/src/ui/menu.svg" alt="Menu" class="menuIcon">
+        <img src="src/ui/menu.svg" alt="Menu" class="menuIcon">
     </div>
 
     <canvas id="forest"></canvas>
@@ -98,11 +98,11 @@
             <button class="saveActionButton" onclick="loadFromSaveData(this.parentElement.children[3].value)">Load From Save Data</button>
             <textarea class="saveTextArea" id="saveDataDisplay"></textarea>
             <div class="saveCopy" onclick="copySaveData()">
-                <img src="/src/ui/clipboard.svg" alt="Copy" class="saveCopyIcon"> Copy to clipboard
+                <img src="src/ui/clipboard.svg" alt="Copy" class="saveCopyIcon"> Copy to clipboard
             </div>
 
             <div class="saveCopy" onclick="clearData()">
-                <img src="/src/ui/garbage.svg" alt="Copy"> Clear Save
+                <img src="src/ui/garbage.svg" alt="Copy"> Clear Save
             </div>
 
             <div class="menuCloseCenter">
@@ -115,6 +115,6 @@
         Investment Profit: -999
     </div>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

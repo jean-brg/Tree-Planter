@@ -1,4 +1,7 @@
 # Tree-Planter
+
+![Tree Planter Thumbnail Image](https://github.com/jean-brg/Tree-Planter/blob/main/thumbnail.png?raw=true)
+
 A small idle game made with HTML Canvas and JS about planting trees for the good of the planet!
 
 ## Gameplay
